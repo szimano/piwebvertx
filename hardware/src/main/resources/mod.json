@@ -1,7 +1,7 @@
 {
 
   // Java verticle
-  "main":"org.szimano.piwebvertx.PingVerticle",
+  "main":"org.szimano.piwebvertx.HardwareVerticle",
 
   // In this example we also provide various other versions of the main verticle, you can uncomment this and
   // play around:

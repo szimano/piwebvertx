@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Vert.x + RapsberryPI + web</title>
+
+    <script src="http://cdn.sockjs.org/sockjs-0.3.4.min.js"></script>
+    <script src='vertxbus.min.js'></script>
+    <script src='jquery-2.0.3.min.js'></script>
+</head>
+<body>
+    This is raspberry on vertx lol xD.
+
+    <form>
+        <label for="box">The button state is: </label>
+        <span id="box">UP</span>
+    </form>
+
+    <script>
+
+        var eb = new vertx.EventBus('http://localhost:9999/comm');
+
+        eb.onopen = function() {
+            eb.registerHandler('buttonbus', function(message) {
+                console.log("Message from the button: "+message);
+                $("#box").text(message == "1" ? "DOWN" : "UP");
+            });
+        }
+
+    </script>
+</body>
+</html>
